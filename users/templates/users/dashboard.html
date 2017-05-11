@@ -20,8 +20,16 @@
 				<h4>Recent Thoughts</h4>
 			</div>
 			<div class="menu_box_list">
+            {% if not user.thoughts.all %}
+                <br>
+                <br>
+                <h3 style="color:white; text-align: center">Oho... You Don't have any thought recorded yet!</h3>
+                <br>
+                <br>
+            {% else %}
                 <ul>
                 {% for thought in user.thoughts.all %}
+
                     <li>
                     <a href="#">
                         <div>
@@ -34,6 +42,7 @@
                     </li>
                 {% endfor %}
 				</ul>
+            {% endif %}
 				<div class="clear"></div>
 			</div>
 		</div>
@@ -58,6 +67,15 @@
 			<div class="btn_style bg2">
 				<h4>Thoughts Visualization</h4>
 			</div>
+            {% if not user.thoughts.all %}
+                <div class="menu_box_list">
+                <br>
+                <br>
+                <h3 style="color:white; text-align: center">Oho... You Don't have any item for visualization yet!</h3>
+                <br>
+                <br>
+                </div>
+            {% else %}
             <div class="chart">
                 <canvas id="myLineChart" height="350" width="500" style="margin-top: 30px;"></canvas>
 				<script>
@@ -107,6 +125,7 @@
 
 				</script>
             </div>
+            {% endif %}
 		</div>
 		<div class="grid1_of_3 left">
 			<div class="btn_style bg4">
