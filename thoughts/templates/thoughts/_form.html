@@ -1,0 +1,9 @@
+{% load bootstrap3 %}
+<div class="login_form">
+<form method="POST" action="{% url 'thoughts:create' %}">
+    {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='Record' class='btn-primary' %}{% endbuttons %}
+
+</form>
+</div>

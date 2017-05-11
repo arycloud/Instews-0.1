@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% load bootstrap3 %}
+
+{% block title %}{{ headline }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+     <style>
+        body{
+            padding-top: 0;
+            margin-top: 0;
+        }
+     .help-block{
+        color:white;
+     }
+        .control-label{
+            color:white;
+        }
+        #id_name{
+            padding: 0 15px;
+            font-weight: 500;
+            font-family: 'Open Sans', sans-serif;
+            color:black;
+            font-size: 1em;
+            /*background: rgba(255, 255, 255, 0.15);*/
+            outline: none;
+            border: none;
+            -webkit-appearance: none;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -o-border-radius: 10px;
+            box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+            -webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+            -moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+            -o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+        }
+        #id_description{
+            padding: 0 15px;
+            font-weight: 500;
+            font-family: 'Open Sans', sans-serif;
+            color:black;
+            font-size: 1em;
+            /*background: rgba(255, 255, 255, 0.15);*/
+            outline: none;
+            border: none;
+            -webkit-appearance: none;
+        }
+     .grid1_of_3{
+         width: 45%;
+     }
+    </style>
+    <div class="grids_of_3">
+		<div class="grid1_of_3 left">
+			<div class="btn_style bg1">
+                {% if object %}
+				<h4>Edit {{ object.name }}</h4>
+                {% else %}
+				<h4>Create New Family</h4>
+                {% endif %}
+			</div>
+			<form action="" method="POST" class="login_form">
+                    {% bootstrap_form form %}
+                    {% csrf_token %}
+                    {% if object %}
+                    <input type="submit" value="Save" class="pull-right btn btn-primary btn-lg">
+                    {% else %}
+                    <input type="submit" value="Create" class="pull-right btn btn-primary btn-lg">
+                    {% endif %}
+                    <br>
+            </form>
+		</div>
+    </div>
+        <div class="grid1_of_3 left">
+			<div class="btn_style bg3">
+				{% if object %}
+                        <h4>{{ object.name }}</h4>
+                {% else %}
+                        <h4>{{ headline }}</h4>
+                {% endif %}
+			</div>
+                <div class="loader_main">
+                        {% if object %}
+                        {{ object.description|linebreaks }}
+                    {% else %}
+                            <p>A Family is a group at fkare.It will represents all of your personal relations, may be your family members or friends.</p>
+                    {% endif %}
+                </div>
+        </div>
+    <div class="container">
+
+    </div>
+{% endblock %}

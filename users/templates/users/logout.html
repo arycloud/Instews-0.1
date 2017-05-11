@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}Logout | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <style>
+        body{
+            margin-bottom: 15%;
+        }
+        .grid1_of_3_3{
+            margin-left: 35%;
+            margin-right:20%;
+            margin-top: 0;
+            width:32%;
+            padding-top: 0;
+            padding-left: 1%;
+            padding-bottom: 13%;
+        }
+        #btn_lg{
+            margin-left: 40%;
+        }
+    </style>
+<div class="grids_of_3" style="margin-top: 4%">
+		<div class="grid1_of_3_3">
+			<div class="btn_style bg">
+				<h4>Logout</h4>
+			</div>
+            <div class="login_form">
+			<h2 style="color:white; text-align: center; font-size: 2em;">You sure?</h2> <br>
+                <form method="POST">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" id="btn_lg" value="Logout" class="btn  btn-primary btn-large">
+                </form>
+            </div>
+            <br>
+            <div class="soc_icons">
+                <div> <h2>Come back soon!</h2><p style="font-size: medium">This site works best if you use it often! </p> </div>
+			</div>
+        </div>
+</div>
+<div class="container">
+
+</div>
+{% endblock %}

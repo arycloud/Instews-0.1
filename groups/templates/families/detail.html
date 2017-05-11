@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% load bootstrap3 %}
+
+{% block title %}{{ headline }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <style>
+        body{
+            padding-top: 0;
+            margin-top: 6%;
+        }
+        .grid1_of_3{
+             width: 45%;
+            margin-left:3%;
+         }
+    .grid1_of_3 p{
+        font-size: medium;
+    }
+    .soc_icons form label{
+        color:white;
+    }
+    #id_email_or_username{
+        padding: 0 15px;
+        font-weight: 500;
+        font-family: 'Open Sans', sans-serif;
+        color:black;
+        font-size: 1em;
+        /*background: rgba(255, 255, 255, 0.15);*/
+        outline: none;
+        border: none;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -o-border-radius: 10px;
+        box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+        -webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+        -moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+        -o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+    }
+    .soc_icons form button{
+        margin-left:33em;
+        margin-top: 1em;
+    }
+    .left{
+        float:left;
+        margin-left:3%;
+    }
+    .mem{
+        float:right;
+    }
+    .grids_of_3{
+        margin-top: 3%;
+    }
+    </style>
+    <div class="grids_of_3 row">
+		<div class="grid1_of_3">
+			<div class="btn_style bg1">
+				<h4>{{ object.name }}</h4>
+			</div>
+			<div class="login_form">
+                <p>{{ object.description|linebreaks }}</p>
+				{% if user == object.created_by %}
+                    <a href="{% url 'groups:families:update' slug=object.slug %}" class="btn btn-primary pull-right">Edit</a>
+                <hr>
+            </div>
+            <div class="soc_icons">
+                    <h4> Invite Someone! </h4>
+                    <form action="" method="POST">
+                            {% csrf_token %}
+                            {% bootstrap_field form.email_or_username layout='horizontal' %}
+    {#                        <input type="submit" value="Invite!" class="btn btn-primary center-block">#}
+                            <button type="submit" class="btn btn-primary" Value="Invite">Invite!</button>
+                    </form>
+            </div>
+                 {% else %}
+                    <a href="{% url 'groups:families:leave' slug=object.slug %}" class="btn btn-danger pull-right">Leave</a>
+                    <hr></div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                {% endif %}
+
+	<div class="clear"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 style="color: white">Members</h4>
+                <div class="list-group">
+                    {% for member in object.members.all %}
+                        <a href="#" class="list-group-item">
+                            {% if member == object.created_by %}<i class="glyphicon glyphicon-star"></i>{% endif %}
+                            {{ member.get_full_name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">&nbsp;</div>
+    <div class="container">&nbsp;</div>
+    <div class="container">&nbsp;</div>
+    <div class="container">&nbsp;</div>
+    <div class="container">&nbsp;</div>
+    	<div class="clear"></div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% load bootstrap3 %}
+
+{% block title %}Invites | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <style>
+        .grid1_of_3{
+            margin-top:4%;
+            margin-left: 25%;
+            padding-bottom: 28%;
+        }
+        body{
+            padding-bottom:3%;
+        }
+        h4{
+            text-transform:lowercase;
+            font-family: Arial;
+        }
+        #act_btns{
+            padding-top:2%;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+        #act_btns a{
+            display:inline;
+            background:none;
+            padding: 0;
+        }
+        #act_btns a:hover{
+            border-left: none;
+        }
+        #act_btns button{
+            width:4em;
+            height:3em;
+        }
+    </style>
+
+    <div class="grid1_of_3">
+        <div class="btn_style btn-danger">
+            <h4>Invitations</h4>
+        </div>
+        <div class="menu_box_list">
+            <ul>
+                {% for invite in object_list %}
+                        <li>
+                            <span class="pull-right" style="padding-top: 2%; padding-right: 2%" id="act_btns">
+                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='accept' %}" ><button class="btn btn-success"><i class="glyphicon glyphicon-ok center-block"></i></button></a>
+                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='reject' %}" ><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a>
+                            </span>
+                            <a href="#">{{ invite.company }} by {{ invite.from_user }} </a></li>
+                    {% empty %}
+                        <li><p style="text-align: center; padding-top: 4%; padding-bottom: 4%; font-size: x-large"> You don't have any Invitations...! </p></li>
+                    {% endfor %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
+
+{#    <div class="grid1_of_3">#}
+{#        <div class="btn_style btn-danger">#}
+{#            <h4>Invitations</h4>#}
+{#        </div>#}
+{#        <div class="menu_box_list">#}
+{#            <ul>#}
+{#                {% for invite in object_list %}#}
+{#                        <li>#}
+{#                            <div class="pull-right" id="act_btns">#}
+{#                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='accept' %}" ><button class="btn btn-success"><i class="glyphicon glyphicon-ok center-block"></i></button></a>#}
+{#                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='reject' %}" ><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a>#}
+{#                            </div>#}
+{#                            <a href="#">{{ invite.family }} by {{ invite.from_user }} </a></li>#}
+{#                    {% empty %}#}
+{#                        <li><p style="text-align: center; padding-top: 4%; padding-bottom: 4%; font-size: x-large"> You don't have any Invitations...! </p></li>#}
+{#                    {% endfor %}#}
+{#            </ul>#}
+{#            <div class="clear"></div>#}
+{#        </div>#}
+{#    </div>#}
+
+
+
+
+    <div class="container pt"></div>
+
+
+
+
+
+    <div class="container pt ">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group menu_box_list">
+                    {% for invite in object_list %}
+                        <li class="list-group-item row">
+                            <div class="pull-right">
+                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='accept' %}" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='reject' %}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                            </div>
+                            {{ invite.company }} by {{ invite.from_user }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

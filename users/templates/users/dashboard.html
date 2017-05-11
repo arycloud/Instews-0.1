@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% load thought_tags %}
+
+{% block title %}Dashboard | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <style>
+        .grids_of_3 p{
+            font-size: medium;
+        }
+    </style>
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <div class="wrap" xmlns="http://www.w3.org/1999/html" >
+	<!-- start grids_of_3 -->
+    <h2 style="color: white; font-size: 40px; text-align: center; padding-top: 20px;">Welcome Back {% if user.first_name != "" %}{{ user.first_name }} {{ user.last_name }} {% else %} {{ user.username }}{% endif %}!</h2>
+	<div class="grids_of_3" id="sortable">
+		<div class="grid1_of_3" >
+			<div class="btn_style bg4">
+				<h4>Recent Thoughts</h4>
+			</div>
+			<div class="menu_box_list">
+                <ul>
+                {% for thought in user.thoughts.all %}
+                    <li>
+                    <a href="#">
+                        <div>
+                        <h4 class="list-group-item-heading">
+                            <span class="pull-right medium"><time  datetime="{{ thought.recorded_at }}">{{ thought.recorded_at|date:"SHORT_DATE_FORMAT" }}</time></span></h4>
+                            <h2 style="font-size: 25px;">{{ thought.get_condition_display }}</h2>
+                            {% if thought.notes %}<p style="font-size:10px;"> {{ thought.notes|linebreaks }} </p>{% endif %}
+                    </div>
+                    <div class="clear"></div></a>
+                    </li>
+                {% endfor %}
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="grid1_of_3 left">
+			<div class="btn_style bg">
+				<h4>How're you Feeling?</h4>
+			</div>
+			<div class="login_form">
+			{% thought_form %}
+			</div>
+			<div class="soc_icons">
+				<ul>
+					<li><a class="icon_1" href="#"></a></li>
+					<li><a class="icon_2" href="#"></a></li>
+					<li><a class="icon_3" href="#"></a></li>
+					<li><a class="icon_4" href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="grid1_of_3">
+			<div class="btn_style bg2">
+				<h4>Thoughts Visualization</h4>
+			</div>
+            <div class="chart">
+                <canvas id="myLineChart" height="350" width="500" style="margin-top: 30px;"></canvas>
+				<script>
+{#						var lineChartData = {#}
+{#						labels : ["January","February","March","April","May","June","July"],#}
+{#						datasets : [#}
+{#							{#}
+{#								fillColor : "rgba(220,220,220,0.5)",#}
+{#								strokeColor : "rgba(220,220,220,1)",#}
+{#								pointColor : "rgba(220,220,220,1)",#}
+{#								pointStrokeColor : "#fff",#}
+{#								data : [65,59,90,81,56,55,40]#}
+{#							},#}
+{#							{#}
+{#								fillColor : "rgba(151,187,205,0.5)",#}
+{#								strokeColor : "rgba(151,187,205,1)",#}
+{#								pointColor : "rgba(151,187,205,1)",#}
+{#								pointStrokeColor : "#fff",#}
+{#								data : [28,48,40,19,96,27,100]#}
+{#							}#}
+{#						]#}
+{##}
+{#					}#}
+                    {% chart_data as data %}
+                    var data = {{ data|safe }};
+                    var labels = data.labels;
+                    console.log(labels);
+                    var datas = data.series;
+                    console.log(datas);
+                    var tempData = {
+                        labels: labels,
+                        datasets : [{
+                          color                 :"white",
+                          fillColor             : "rgba(151,187,205,0.2)",
+                          strokeColor           : "rgba(151,187,205,1)",
+                          pointColor            : "rgba(151,187,205,1)",
+                          pointStrokeColor      : "#fff",
+                          pointHighlightFill    : "#fff",
+                          pointHighlightStroke  : "rgba(151,187,205,1)",
+                          data                  : datas
+      }]
+                    };
+                Chart.defaults.global.responsive = true;
+                Chart.defaults.global.pointDotRadius = 17;
+
+				var myLine = new Chart(document.getElementById("myLineChart").getContext("2d")).Line(tempData,{ scaleFontColor: "white" });
+
+				</script>
+            </div>
+		</div>
+		<div class="grid1_of_3 left">
+			<div class="btn_style bg4">
+				<h4>Companies</h4>
+			</div>
+
+			<div class="locate">
+            {% for company in user.companies.all %}
+               <a href="{% url 'groups:companies:detail' slug=company.slug %}" class="list-group-item">{{ company.name }}</a>
+
+            {% endfor %}
+
+				<div class="clear"></div>
+            </div>
+        <div class="clear"></div>
+        <br>
+        <div class="btn_style btn-danger">
+				<h4>Families</h4>
+		</div>
+			<div class="locate">
+                {% for family in user.families.all %}
+                   <a href="{% url 'groups:families:detail' slug=family.slug %}" class="list-group-item">{{ family.name }}</a>
+                {% endfor %}
+                <div class="clear"></div>
+            </div>
+		</div>
+	<div class="clear"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'js/chartist/chartist.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.css" />
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/stretchy.js' %}" data-filter="#id_notes" async></script>
+    <script src="{% static 'js/chartist/chartist.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.js'></script>
+    <script>
+        $( function() {
+        $( "#sortable" ).sortable();
+        $( "#sort" ).sortable();
+        $( "#sortable" ).disableSelection();
+      } );
+    </script>
+    <script>
+        var responsiveOptions = [
+      ['screen and (min-width: 641px) and (max-width: 1024px)', {
+        showPoint: false,
+        axisX: {
+          labelInterpolationFnc: function(value) {
+            return 'Week ' + value;
+          }
+        }
+      }],
+      ['screen and (max-width: 640px)', {
+        showLine: false,
+        axisX: {
+          labelInterpolationFnc: function(value) {
+            return 'W' + value;
+          }
+        }
+      }]
+    ];
+        {% chart_data as data %}
+        var data = {{ data|safe }};
+        new Chartist.Line('.ct-chart', data, responsiveOptions);
+    </script>
+{% endblock %}
