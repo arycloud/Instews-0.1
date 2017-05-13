@@ -17,7 +17,7 @@ class SignUpForm(UserCreationForm):
             'last_name',
             'email',
             'password1',
-            'password2')
+            'password2',)
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)

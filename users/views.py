@@ -36,3 +36,12 @@ class SignUpView(generic.CreateView):
     form_class = forms.SignUpForm
     template_name = 'users/signup.html'
     success_url = reverse_lazy('users:dashboard')
+
+
+class Profile(generic.DetailView):
+    form_class = forms.User
+    template_name = 'users/profile.html'
+
+    def get_object(self):
+        return forms.User
+

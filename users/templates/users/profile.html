@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% load group_tags %}
+{% block title %}Dashboard | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <style>
+{#        override .grid_left css#}
+        .grid_left{
+            float: left;
+            width: 20.33333%;
+            margin-left: 4.3333%;
+            border-left: 1px solid rgba(235, 175, 201, 0.6);
+            display: inline-block;
+        }
+        .grids_of_3{
+            width:80%;
+            align-content: center;
+            margin-top: 0;
+        }
+        .grid1_of_3{
+            width:100%;
+            margin-left: 9%;
+
+        }
+        .grid_user{
+            padding-top: 0;
+            margin-top: 0;
+        }
+    </style>
+<div class="wrap">
+    <div class="grids_of_3">
+        <div class="grid1_of_3 center-block">
+                <div class="btn_style bg1">
+                    <h4 style="text-transform: lowercase;">{{ user.username }}' Profile</h4>
+                </div>
+                <div class="grid_img1">
+                    <img src={% static 'images/pic2.jpg' %} alt=""/>
+                </div>
+                    <div class="grid_user">
+                        <div class="grid_list">
+                            <div class="list_img">
+                                <a href="#"><img src={% static 'images/user.jpg' %} alt=""/></a>
+                            </div>
+                            <div class="list_text">
+                                <h4>
+                                    {% if user.first_name %}
+                                    <span><a href="#">{{ user.first_name}}
+                                    {{ user.last_name}}</a></span>
+                                    {% else %}
+                                    <a href="#">Sorry! You don't have entered your First & Last Name!</a>
+                                    {% endif %}
+                                </h4>
+                            <br>
+                                <span style="padding-left: 0;padding-top: 3px"><i class="glyphicon glyphicon-send"></i>  {{ user.email }}</span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="grids_left">
+                    <div class="grid_left">
+                        <p>Total Thoughts</p>
+                        {% if user.thoughs.all.count == 0 %}
+                        <span style="font-size: smaller">Nothing Create any thought yet!</span>
+                        {% else %}
+                        <span> {{ user.thoughts.all|length }} </span>
+                        {% endif %}
+                    </div>
+                    <div class="grid_left">
+                        <p>Companies</p>
+                        {% if user.companies.all.count == 0 %}
+                        <span style="font-size: smaller">Nothing have any Company created/joined yet!</span>
+                        {% else %}
+                        <span> {{ user.companies.all|length }} </span>
+                        {% endif %}
+                    </div>
+                    <div class="grid_left">
+                        <p>Families</p>
+                        {% if user.families.all.count == 0 %}
+                        <span style="font-size: smaller">Nothing have any Family created/joined yet!</span>
+                        {% else %}
+                        <span> {{ user.families.all|length }} </span>
+                        {% endif %}
+                    </div>
+                    <div class="grid_left">
+                        <p>Invitations Received</p>
+                        {% if user.familyinvite_received.all.count == 0 and user.cmpanyinvite_received.all.count == 0%}
+                        <span style="font-size: smaller">Nothing have any invitation yet!</span>
+                        {% else %}
+                        <span> {{ user.familyinvite_received.all|length }} </span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                <div class="follow">
+                    <a href="{% url 'users:dashboard' %}"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+ Go Back to Dashboard!</a>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+    <div class="clear"></div>
+{% endblock %}
+

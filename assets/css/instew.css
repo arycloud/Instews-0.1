@@ -399,7 +399,7 @@ p{
 	color: #D4BCD4;
 }
 .list_text span.new{
-	background: url('../images/loc.png')  no-repeat 0px 5px;
+	background: url('../images/email.ico')
 }
 .list_text span{
 	font-size: 0.9725em;
@@ -442,7 +442,7 @@ p{
 	font-weight: 400;
 }
 .grid_left span {
-	display: block;
+	display: inline;
 	color: #ffffff;
 	font-size: 2em;
 	font-weight: 100;
