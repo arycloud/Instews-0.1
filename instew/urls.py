@@ -23,13 +23,20 @@ from thoughts import urls as thought_urls
 from users import urls as user_urls
 from groups import urls as group_urls
 
+from users.serializers import router as user_router
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/', include(user_urls, namespace='users')),
     url(r'^thoughts/', include(thought_urls, namespace='thoughts')),
     url(r'^groups/', include(group_urls, namespace='groups')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+<<<<<<< HEAD
     url(r'^(?P<username>\w+)/', include('users.urls')),
+=======
+    url(r'^api/', include(user_router.urls, namespace='rest_framework')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+>>>>>>> Instews-Api
 ]
 
 if settings.DEBUG:
