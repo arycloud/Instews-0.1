@@ -45,11 +45,6 @@
             {% endif %}
 				<div class="clear"></div>
 			</div>
-        {% for invite in user.companies.invites %}
-        <div>
-            <h1> invite1</h1>
-        </div>
-        {% endfor %}
 		</div>
 		<div class="grid1_of_3 left">
 			<div class="btn_style bg">
@@ -138,11 +133,13 @@
 			</div>
 
 			<div class="locate">
-            {% for company in user.companies.all %}
-               <a href="{% url 'groups:companies:detail' slug=company.slug %}" class="list-group-item">{{ company.name }}</a>
+                {% if not user.companies.all %}
+                    <h1 style="font-size: medium; text-align: center">Nothing have any Company created/joined yet!</h1>
+                {% endif %}
+                {% for company in user.companies.all %}
+                   <a href="{% url 'groups:companies:detail' slug=company.slug %}" class="list-group-item">{{ company.name }}</a>
 
-            {% endfor %}
-
+                {% endfor %}
 				<div class="clear"></div>
             </div>
         <div class="clear"></div>
@@ -151,6 +148,9 @@
 				<h4>Families</h4>
 		</div>
 			<div class="locate">
+                {% if not user.families.all %}
+                    <h1 style="font-size: medium; text-align: center">Nothing have any Company created/joined yet!</h1>
+                {% endif %}
                 {% for family in user.families.all %}
                    <a href="{% url 'groups:families:detail' slug=family.slug %}" class="list-group-item">{{ family.name }}</a>
                 {% endfor %}

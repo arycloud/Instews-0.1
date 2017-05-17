@@ -45,3 +45,7 @@ class Profile(generic.DetailView):
     def get_object(self):
         return forms.User
 
+
+class UserDetail(generic.DetailView):
+    form_class = forms.User
+    template_name = 'users/user.html'

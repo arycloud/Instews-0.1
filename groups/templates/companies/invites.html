@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load bootstrap3 %}
-
+{% load total_invites_tags %}
 {% block title %}Invites | {{ block.super }}{% endblock %}
 
 {% block content %}
@@ -38,7 +38,8 @@
 
     <div class="grid1_of_3">
         <div class="btn_style btn-danger">
-            <h4>Invitations</h4>
+            <h4>Invitations <span class="pull-right"><i class="badge">Total Company Invites : {{ user.companyinvite_received.all|length }} </i></span></h4>
+            <h5></h5>
         </div>
         <div class="menu_box_list">
             <ul>
@@ -89,21 +90,5 @@
 
 
 
-    <div class="container pt ">
-        <div class="row">
-            <div class="col-md-6">
-                <ul class="list-group menu_box_list">
-                    {% for invite in object_list %}
-                        <li class="list-group-item row">
-                            <div class="pull-right">
-                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='accept' %}" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
-                                <a href="{% url 'groups:companies:invite_response' code=invite.uuid response='reject' %}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                            </div>
-                            {{ invite.company }} by {{ invite.from_user }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div class="container pt "></div>
 {% endblock %}

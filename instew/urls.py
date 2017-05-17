@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^thoughts/', include(thought_urls, namespace='thoughts')),
     url(r'^groups/', include(group_urls, namespace='groups')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^(?P<username>\w+)/', include('users.urls')),
 ]
 
 if settings.DEBUG:
