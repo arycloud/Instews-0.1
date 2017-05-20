@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from django.views.generic import TemplateView
+from rest_framework_jwt.views import obtain_jwt_token
 
 from thoughts import urls as thought_urls
 from users import urls as user_urls
@@ -42,6 +43,7 @@ urlpatterns = [
     url(r'^(?P<username>\w+)/', include('users.urls')),
     url(r'^api/', include(api_urlpatterns)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-token-auth/', obtain_jwt_token),
 ]
 
 if settings.DEBUG:
