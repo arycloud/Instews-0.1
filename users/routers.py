@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from rest_framework import routers,serializers, viewsets
+from rest_framework import routers
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
