@@ -10,7 +10,5 @@ class ThoughtViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return self.request.user.thoughts.all()
 
-    # def create(self, request, *args, **kwargs):
-    #     import pdb
-    #     pdb.set_trace()
-    #     return super().create(request, *args, **kwargs)
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)

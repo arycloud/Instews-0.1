@@ -1,4 +1,4 @@
-"""feelings URL Configuration
+"""Instews URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -24,11 +24,11 @@ from thoughts import urls as thought_urls
 from users import urls as user_urls
 from groups import urls as group_urls
 
-from users.serializers import router as user_router
+from users import routers as user_router
 from thoughts import routers as thought_router
 
 api_urlpatterns = [
-    url(r'', include(user_router.urls)),
+    url(r'', include(user_router.router.urls)),
     url(r'', include(thought_router.router.urls))
 ]
 
