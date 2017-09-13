@@ -1,0 +1,14 @@
+
+.idea/
+.vscode/
+db.sqlite3
+groups/__pycache__/
+groups/migrations/__pycache__/
+groups/templatetags/__pycache__/
+groups/views/__pycache__/
+instew/__pycache__/
+thoughts/__pycache__/
+thoughts/migrations/__pycache__/
+thoughts/templatetags/__pycache__/
+users/__pycache__/
+users/migrations/__pycache__/
