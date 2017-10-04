@@ -16,7 +16,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('username', 'first_name', 'last_name',
                   'email', 'last_login', 'date_joined',
                   'password', 'thoughts')
-        read_only_fields = ('last_login', 'date_joined')
+        read_only_fields = ('username', 'last_login', 'date_joined')
 
     def create(self, validated_data):
         validated_data['password'] = self.context['request'].data['password']

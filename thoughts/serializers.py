@@ -19,4 +19,3 @@ class ThoughtSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_condition_display(self, obj):
         return obj.get_condition_display()
-
