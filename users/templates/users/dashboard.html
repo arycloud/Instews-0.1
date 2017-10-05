@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% load static from staticfiles %}
 {% load thought_tags %}
-
+{% load render_bundle from webpack_loader %}
 {% block title %}Dashboard | {{ block.super }}{% endblock %}
 
 {% block content %}
@@ -15,9 +15,11 @@
 	<!-- start grids_of_3 -->
     <h2 style="color: white; font-size: 40px; text-align: center; padding-top: 20px;">Welcome Back {% if user.first_name != "" %}{{ user.first_name }} {{ user.last_name }} {% else %} {{ user.username }}{% endif %}!</h2>
 	<div class="grids_of_3" id="sortable">
+        <div id="react-app"></div>
 		<div class="grid1_of_3" >
 			<div class="btn_style bg4">
 				<h4>Recent Thoughts</h4>
+                <div id="react-app"></div>
 			</div>
 			<div class="menu_box_list">
             {% if not user.thoughts.all %}
@@ -163,11 +165,13 @@
 {% endblock %}
 
 {% block css %}
+    {% render_bundle 'main' 'css' %}
     <link rel="stylesheet" href="{% static 'js/chartist/chartist.min.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.css" />
 {% endblock %}
 
 {% block js %}
+    {% render_bundle 'main' 'js' %}
     <script src="{% static 'js/stretchy.js' %}" data-filter="#id_notes" async></script>
     <script src="{% static 'js/chartist/chartist.min.js' %}"></script>
     <script src="https://code.jquery.com/jquery-2.2.0.js"></script>

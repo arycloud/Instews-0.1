@@ -1,0 +1,35 @@
+{
+  "name": "instew",
+  "version": "1.0.0",
+  "description": "Instews lets you track your feelings on different occasions and times.It can helps you to make a little bit more controle over your feelings and thoughts.With the help of Instews you can care yourself in more appropriate way in the context of your emations and feelings.For example on a specific oscasion you shouldn't be angry but you do unconciously, it will helps you track this feelings and think about it later.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arycloud/Instews-0.1.git"
+  },
+  "author": "Abdul Rehman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arycloud/Instews-0.1/issues"
+  },
+  "homepage": "https://github.com/arycloud/Instews-0.1#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-hot-loader": "^1.3.1",
+    "webpack": "^2.2.1",
+    "webpack-bundle-tracker": "^0.2.0",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.2"
+  }
+}
