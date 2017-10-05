@@ -1,0 +1,22 @@
+{
+  "name": "Instews-0.1",
+  "homepage": "https://github.com/arycloud/Instews-0.1",
+  "authors": [
+    "Abdul-Rehman-Yousaf <abdul12391@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^16.0.0",
+    "jquery": "^3.2.1"
+  }
+}

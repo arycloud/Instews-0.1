@@ -1,0 +1,155 @@
+.help-block{
+    color:white;
+}
+.control-label{
+    color:white;
+}
+#id_username{
+    padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
+#id_first_name{
+	padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
+#id_last_name{
+    padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
+#id_email{
+    padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+#id_profile_pic{
+	padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+#id_password1{
+    padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
+#id_password2{
+    padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
+#id_password{
+    padding: 0 15px;
+    font-weight: 500;
+	font-family: 'Open Sans', sans-serif;
+    color:black;
+    font-size: 1em;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    outline: none;
+    border: none;
+	-webkit-appearance: none;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+    box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+	-o-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.28);
+}
